@@ -5,10 +5,12 @@ import { DynamicFooter } from "../_components/footer/dynamic-footer";
 export const metadata: Metadata = {
   title: "Contributors",
   description:
-    "Meet the contributors behind Zedu - the developers, designers, and educators building an AI-powered learning platform for bootcamps, schools, and cohorts.",
+    "Meet Team Zedu-Flamingo - the developers, designers, and educators behind Zedu, an AI-powered learning platform for bootcamps, schools, and cohorts.",
   keywords: [
     "Zedu contributors",
     "Zedu team",
+    "Team Zedu-Flamingo",
+    "Zedu-Flamingo",
     "open source contributors",
     "learning platform builders",
     "Zedu community",
@@ -18,9 +20,9 @@ export const metadata: Metadata = {
     icon: "/TelexIcon.svg",
   },
   openGraph: {
-    title: "Zedu Contributors - The People Behind the Platform",
+    title: "Team Zedu-Flamingo - The People Behind Zedu",
     description:
-      "Celebrate the community of developers, designers, and educators building Zedu, an AI-powered learning platform for modern cohorts.",
+      "Celebrate Team Zedu-Flamingo, the community of developers, designers, and educators building Zedu, an AI-powered learning platform for modern cohorts.",
     url: siteUrl("/contributors"),
     siteName: "Zedu",
     images: [
@@ -35,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zedu Contributors - The People Behind the Platform",
+    title: "Team Zedu-Flamingo - The People Behind Zedu",
     description:
-      "Meet the community of builders behind Zedu, an AI-powered learning platform for bootcamps, schools, and cohorts.",
+      "Meet Team Zedu-Flamingo, the community of builders behind Zedu, an AI-powered learning platform for bootcamps, schools, and cohorts.",
     images: [ogImageUrl("og-image-5.png")],
   },
   alternates: {
@@ -114,6 +116,9 @@ const ContributorsPage = () => {
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[30%] bg-gradient-to-t from-blue-50/30 to-white"
         />
+        <p className="rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary-500 sm:text-sm">
+          Team Zedu-Flamingo
+        </p>
         <h1 className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-4xl md:text-5xl text-center">
           The People Behind <span className="text-primary-500">Zedu</span>
         </h1>
