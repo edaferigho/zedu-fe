@@ -41,7 +41,7 @@ const nextConfig = {
     unoptimized: true,
   },
   transpilePackages: ["lucide-react"],
-  assetPrefix: isDev ? undefined : "/mainapp",
+  assetPrefix: isDev || process.env.VERCEL ? undefined : "/mainapp",
   compiler: {
     removeConsole: isDev ? false : true,
   },
