@@ -60,6 +60,7 @@ const topLevelLinks: NavLink[] = [
   { label: "Resources", href: "/resources" },
   { label: "Pricing", href: "/pricing" },
   { label: "About Us", href: "/about" },
+  { label: "Contributors", href: "/contributors" },
   { label: "Download", href: "/download" },
 ];
 
@@ -96,25 +97,25 @@ const Header: React.FC = () => {
 
   return (
     <>
-      {windowWidth < 1024 && isOpen ? (
+      {windowWidth < 1280 && isOpen ? (
         <div className="fixed inset-0 z-40 bg-black opacity-50" />
       ) : null}
 
       <nav className="relative z-[1000] w-full bg-white lg:px-0">
         <div
           className={`fixed inset-x-0 top-0 z-[60] flex h-20 max-w-[100dvw] items-center justify-between border-b-[1px] transition-colors duration-300 lg:border-[#F2F4F7] ${
-            windowWidth < 1024 && isOpen
+            windowWidth < 1280 && isOpen
               ? "border-white/20 bg-[#5A34C6]"
               : "border-[#F2F4F7] bg-white"
           }`}
         >
           <div className="group relative mx-auto flex w-full max-w-[1300px] items-center justify-between px-4 md:px-6 lg:px-4 xl:px-8">
-            <div className="z-50 flex items-center gap-8 px-0">
+            <div className="z-50 flex items-center gap-4 px-0 xl:gap-8">
               <div className="flex shrink-0 items-center">
                 <Link href="/">
                   <Image
                     className="h-8 w-auto"
-                    src={windowWidth < 1024 && isOpen ? logoWhite : logoBlack}
+                    src={windowWidth < 1280 && isOpen ? logoWhite : logoBlack}
                     alt="Logo"
                     width={100}
                     height={100}
@@ -122,14 +123,14 @@ const Header: React.FC = () => {
                 </Link>
               </div>
 
-              <div className="hidden h-6 border-l border-[#F0F2F5] lg:block" />
+              <div className="hidden h-6 border-l border-[#F0F2F5] xl:block" />
 
-              <div className="hidden h-16 items-center sm:space-x-4 md:space-x-6 lg:flex">
+              <div className="hidden h-16 items-center space-x-6 xl:flex">
                 {dropdownSections.map((section) => (
                   <DropdownMenu key={section.title}>
                     <DropdownMenuTrigger asChild>
                       <button
-                        className={`flex h-full items-center gap-1 border-b-2 px-1 pt-1 text-sm font-medium text-[#344054] transition-colors duration-200 hover:text-[#5F5FE1] ${
+                        className={`flex h-full items-center gap-1 whitespace-nowrap border-b-2 px-1 pt-1 text-sm font-medium text-[#344054] transition-colors duration-200 hover:text-[#5F5FE1] ${
                           pathname?.includes(section.basePath)
                             ? "border-primary-500 text-[#5F5FE1]"
                             : "border-transparent"
@@ -166,7 +167,7 @@ const Header: React.FC = () => {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`item-center flex h-full flex-col justify-center border-b-2 px-1 pt-1 text-sm font-medium text-[#344054] transition-colors duration-200 hover:text-[#5F5FE1] ${
+                    className={`item-center flex h-full flex-col justify-center whitespace-nowrap border-b-2 px-1 pt-1 text-sm font-medium text-[#344054] transition-colors duration-200 hover:text-[#5F5FE1] ${
                       pathname?.includes(item.href)
                         ? "border-primary-500 text-[#5F5FE1]"
                         : "border-transparent"
@@ -178,27 +179,27 @@ const Header: React.FC = () => {
               </div>
             </div>
 
-            <div className="buttons z-50 hidden items-center gap-4 lg:flex">
+            <div className="buttons z-50 hidden items-center gap-4 xl:flex">
               {!token ? (
                 <>
                   <Link
                     href="/auth/login"
-                    className="text-sm font-medium text-[#344054] hover:text-black"
+                    className="whitespace-nowrap text-sm font-medium text-[#344054] hover:text-black"
                   >
                     Log in
                   </Link>
                   <div className="h-6 border-l border-[#E5E7EB]" />
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 xl:gap-4">
                     <OutlineBtn
                       text="Contact Sales"
                       href="/contact-sales"
-                      className="px-3 py-1.5"
+                      className="whitespace-nowrap px-3 py-1.5"
                     />
                     <ArrowBtn
                       text="Get Started"
                       linkToHome
                       hideArrow
-                      className="px-3 py-1.5"
+                      className="whitespace-nowrap px-3 py-1.5"
                     />
                   </div>
                 </>
@@ -207,14 +208,14 @@ const Header: React.FC = () => {
                   <OutlineBtn
                     text="Contact Sales"
                     href="/contact-sales"
-                    className="px-3 py-1.5"
+                    className="whitespace-nowrap px-3 py-1.5"
                   />
 
                   <ArrowBtn
                     text="Go to Dashboard"
                     linkToHome
                     hideArrow
-                    className="px-3 py-1.5"
+                    className="whitespace-nowrap px-3 py-1.5"
                   />
                 </>
               )}
@@ -222,7 +223,7 @@ const Header: React.FC = () => {
 
             <div
               onClick={toggleMenu}
-              className="relative z-50 flex h-6 w-6 cursor-pointer items-center justify-center lg:hidden"
+              className="relative z-50 flex h-6 w-6 cursor-pointer items-center justify-center xl:hidden"
             >
               <div
                 className={`absolute h-0.5 w-full bg-current transition-transform duration-300 ease-in-out ${
@@ -244,7 +245,7 @@ const Header: React.FC = () => {
         </div>
 
         {isOpen && (
-          <nav className="fixed inset-x-0 top-0 z-50 h-full overflow-y-auto bg-gradient-to-b from-[#5A34C6] to-[#4A2BA3] px-4 pt-20 lg:hidden [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-2">
+          <nav className="fixed inset-x-0 top-0 z-50 h-full overflow-y-auto bg-gradient-to-b from-[#5A34C6] to-[#4A2BA3] px-4 pt-20 xl:hidden [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-2">
             <div className="flex flex-col justify-between gap-4 py-4">
               <div className="flex flex-col gap-4 text-white">
                 <Accordion type="single" collapsible className="w-full px-4">
