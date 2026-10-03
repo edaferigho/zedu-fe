@@ -27,29 +27,59 @@ export interface ContributorRecord {
 
 const STORAGE_KEY = "zedu_flamingo_contributors";
 
-const DEFAULT_CONTRIBUTORS: ContributorRecord[] = [
-  {
-    id: "flam-1",
-    fullName: "Timothy Mayor",
-    zeduUsername: "timothymayor",
-    githubRepoUrl: "https://github.com/timothymayor/zedu-fe",
-    submittedAt: "2026-09-28T14:32:00.000Z",
-  },
-  {
-    id: "flam-2",
-    fullName: "Layo Bright",
-    zeduUsername: "layobright",
-    githubRepoUrl: "https://github.com/zedu-hng/zedu-fe",
-    submittedAt: "2026-09-29T10:15:00.000Z",
-  },
-  {
-    id: "flam-3",
-    fullName: "Alex Chen",
-    zeduUsername: "alexchen",
-    githubRepoUrl: "https://github.com/alexchen/zedu-workflow-engine",
-    submittedAt: "2026-09-30T09:45:00.000Z",
-  },
+const ORG_REPO_URL = "https://github.com/zedu-flamingo/zedu-fe";
+const ROSTER_DATE = "2026-10-02T11:23:00.000Z";
+
+const ROSTER: Array<[string, string]> = [
+  ["Edafe Akpokiniovo", "Edafe"],
+  ["Samuel Mukoro", "samuel mukoro"],
+  ["Yolanda Amos", "yolanda amos"],
+  ["Helen Agbro", "Helen Agbro"],
+  ["Umunnakwe Clara Chioma", "CeeCee - Clara"],
+  ["Awosika Ayomide", "awosika_ayomide"],
+  ["Abd Kabeer Salako", "Abd Kabeer"],
+  ["Brian Ibekwe", "Monkey Monkey"],
+  ["Reneilwe Taunyane", "Reneilwe - Taunyane"],
+  ["Timothy Mayor", "tsmayor"],
+  ["Funsho Kamoru", "Funsho Kamoru"],
+  ["Baruwa Abdul - Azeez", "abdul - azeez mayowa"],
+  ["Barakat Oladejo", "Barakat_O"],
+  ["Charles Nwaobasi", "Igwecharles"],
+  ["Drenkat Nathan Nankaham", "KIZZYDEDESIGNER"],
+  ["Mustapha Agboola", "MustaphaAgboola"],
+  ["Nie Osaoboh", "nieosas"],
+  ["Ali Ogochukwu Peter", "Ali - Peter"],
+  ["Ayodeji Saberedowo", "sabhayor"],
+  ["Jennifer Francis", "Jenie"],
+  ["Olubunmi Elegbeleye", "Bunnies"],
+  ["Folorunso Tolulope", "Tolulope_builds"],
+  ["Ibrahim Joy", "Joy / tolhim17"],
+  ["Richard Oduh", "richard_oduh"],
+  ["Ikeanyionwu Blessing Ngozi", "PurpleTechie"],
+  ["Faith Dombe", "faith.dombe04"],
+  ["Benjamin Umeh", "Benjamin"],
+  ["Felicia Kowontan", "bunmiadejoke1"],
+  ["Jehoshaphat Martins", "Song Martins"],
+  ["Jasmine Daniel", "Theneverdone"],
+  ["Adamolekun Samuel", "Adams Teni"],
+  ["Dennis Nwokocha", "Dennis"],
+  ["Evangel Akinfesola", "evangeli amos"],
+  ["Okeugo Chidi Nzubechi", "Jahswill"],
+  ["Raphael Eze", "Raphblink"],
 ];
+
+const DEFAULT_CONTRIBUTORS: ContributorRecord[] = ROSTER.map(
+  ([fullName, zeduUsername], index) => ({
+    id: `flam-${index + 1}`,
+    fullName,
+    zeduUsername,
+    githubRepoUrl:
+      fullName === "Timothy Mayor"
+        ? "https://github.com/timothymayor/zedu-fe"
+        : ORG_REPO_URL,
+    submittedAt: ROSTER_DATE,
+  })
+);
 
 export default function FlamingoBoardPage() {
   const [fullName, setFullName] = useState("");
